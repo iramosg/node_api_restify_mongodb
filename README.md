@@ -10,4 +10,4 @@ Ambiente gratuito de código aberto server-side. Surgiu em 2009.
 - JS Modules: podem chamar inclusive módulos em C++
 
 [!TIP]
-> Para verificar a versão do Node, use o comando: **node -v**.
+Para verificar a versão do Node, use o comando: **node -v**.
