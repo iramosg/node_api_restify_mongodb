@@ -9,16 +9,4 @@ Ambiente gratuito de código aberto server-side. Surgiu em 2009.
 - V8: Mesma Engine usada pelo Chrome para interpretar javascript
 - JS Modules: podem chamar inclusive módulos em C++
 
-
-
-> [!NOTE]
-> This is a NOTE
-
-> [!WARNING]
-> This is a WARNING
-
-> [!TIP]
-> This is a TIP
-
-> [!IMPORTANT]
-> This is IMPORTANT
+> Para verificar a versão do Node, use o comando: **node -v**.
