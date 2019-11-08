@@ -63,6 +63,19 @@ if(req.userAgent() && req.userAgent().includes('MSIE 7.0')) {
 
 ```
 
+## O que é REST?
+REST (REPRESENTATIONAL STATE TRANSFER) é um estilo arquetural que define alguns padrões que um serviço deve seguir que usa o protocolo HTTP como forma de comunicação.
+- Conjunto de URLs que vão servir para localizar recursos.
+  - Recurso é qualquer coisa que pode ter um nome dentro de uma aplicação.
+  - Através do id indicamos qual é o recurso alvo daquela solicitação.
+
+## Requisitos de uma API
+
+- Ela deve ser Stateless, ou seja, significa que toda a requisição vai conter todas as informações necessárias para ser processada
+- Agnóstica de UI, ou seja, não pode ter nada relativo a interface do usuário (escalabilidade)
+- É preciso ter uma interface uniforme, que seria saber identificar unicamente os recursos e permitir sua manipulação através de representações, como por exemplo JSON.
+- Deve possuir suporte a hipermídia, que é o fato de incluir links e metadados na representação dos dados, que facilita a aplicação client navegar nos dados.
+
 
 
 ## Arquitetura
