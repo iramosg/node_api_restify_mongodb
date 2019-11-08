@@ -4,6 +4,67 @@
 ## O que é o Node.JS?
 Ambiente gratuito de código aberto server-side. Surgiu em 2009.
 
+## O que é o Restify?
+O Restify é uma biblioteca específica para Node, que irá auxiliar na criação da API, para ouvir as suas requisições. É similar ao ExpressJS.
+- Trabalha diretamente com JSON
+- Trata erros de forma ideal para API
+- Já traz um suporte mínimo para mídia
+
+É preciso de três coisas:
+
+1- Criar o server
+2- Configurar as rotas
+3- Ouvir determinada porta
+
+Se associa as rotas com os métodos http (GET, POST, PUT, DELETE, etc)
+
+### Os três objetos passados na callback: REQUEST, RESPONSE, CALLBACK
+- RESPONSE: serve para enviar uma resposta
+
+```javascript
+...
+resp.status(400)
+resp.setHeader('Content-Type', 'application/json')
+resp.send({message: 'hello'})
+...
+```
+
+- REQUEST: informações de quem fez a requisição
+
+```javascript
+...
+resp.json({
+    browser: req.userAgent(),
+    method: req.method,
+    url: req.url, // ou req.href()
+    path: req.path(),
+    query: req.query
+  })
+...
+```
+
+- NEXT: é utilizada em três situações:
+- Quando queremos indicar para o Restify que a nossa callback terminou de fazer o que tinha que fazer.
+- Quando temos mais de uma callback associada ao mesmo path de rota (pode se passar um array de callbacks)
+- Quando queremos passar um objeto de erro, para parar o processamento do request, que pode ter algumas propriedades para ser utilizado pelo Restify.
+
+
+```javascript
+...
+if(req.userAgent() && req.userAgent().includes('MSIE 7.0')) {
+  // resp.status(400)
+  // resp.json({ message: 'Please, update your browser' })
+  let error: any = new Error()
+  error.statusCode = 400
+  error.message = 'Please, update your browser'
+  return next(false) // Já resolvi o request, não preciso passar para a próxima requisição
+}
+  return next()
+...
+```
+
+
+
 ## Arquitetura
 - LIBUV: portar o Node para ambientes não Unix
 - V8: Mesma Engine usada pelo Chrome para interpretar javascript
