@@ -12,9 +12,9 @@ O Restify é uma biblioteca específica para Node, que irá auxiliar na criaçã
 
 É preciso de três coisas:
 
-1- Criar o server
-2- Configurar as rotas
-3- Ouvir determinada porta
+1. Criar o server
+2. Configurar as rotas
+3. Ouvir determinada porta
 
 Se associa as rotas com os métodos http (GET, POST, PUT, DELETE, etc)
 
@@ -44,9 +44,9 @@ resp.json({
 ```
 
 - NEXT: é utilizada em três situações:
-- Quando queremos indicar para o Restify que a nossa callback terminou de fazer o que tinha que fazer.
-- Quando temos mais de uma callback associada ao mesmo path de rota (pode se passar um array de callbacks)
-- Quando queremos passar um objeto de erro, para parar o processamento do request, que pode ter algumas propriedades para ser utilizado pelo Restify.
+  - Quando queremos indicar para o Restify que a nossa callback terminou de fazer o que tinha que fazer.
+  - Quando temos mais de uma callback associada ao mesmo path de rota (pode se passar um array de callbacks)
+  - Quando queremos passar um objeto de erro, para parar o processamento do request, que pode ter algumas propriedades para ser utilizado pelo Restify.
 
 
 ```javascript
@@ -60,7 +60,7 @@ if(req.userAgent() && req.userAgent().includes('MSIE 7.0')) {
   return next(false) // Já resolvi o request, não preciso passar para a próxima requisição
 }
   return next()
-...
+
 ```
 
 
