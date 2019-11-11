@@ -1,10 +1,18 @@
 import * as restify from 'restify'
 import { environment } from '../common/environment';
 import { Router } from '../common/router'
-
+import * as Mongoose from 'mongoose';
 export class Server {
 
   application: restify.Server
+
+  initializeDb(): Mongoose.MongooseThenable {
+
+    (<any>Mongoose).Promise = global.Promise
+    return Mongoose.connect(environment.db.url, {
+      useMongoClient: true
+    })
+  }
 
   initRoutes(routers: Router[]): Promise<any> {
     return new Promise((resolve, reject) => {
@@ -36,6 +44,7 @@ export class Server {
   }
 
   bootstrap(routers: Router[] = []): Promise<Server> {
-    return this.initRoutes(routers).then(() => this)
+    return this.initializeDb().then(() =>
+    this.initRoutes(routers).then(() => this))
   }
 }

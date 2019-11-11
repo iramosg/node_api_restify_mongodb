@@ -4,6 +4,30 @@
 ## O que é o Node.JS?
 Ambiente gratuito de código aberto server-side. Surgiu em 2009.
 
+## O que é Mongo DB?
+O mongo é um tipo de banco de dados orientado a documentos. Com o mongo, os dados que persistimos são livres de estruturas estáticas, dando flexibilidade e agilidade.
+
+### O que são documentos e coleções?
+Documentos são objetos que serão compostos por chaves e valores. Chave é o atributo, com valor correspondente.
+Os valores podem ser de vários tipos, já as chaves são do tipo string e case sensitive.
+Um documento não pode ter chaves duplicadas.
+Uma tupla seria equivalente a um documento e uma tabela equivalente a uma coleção.
+Uma coleção serve para agrupar vários documentos, ou seja, uma coleção contém schemas dinâmicos.
+
+### Sobre o Object ID
+Todo objeto armazenado no MongoDB precisa ter uma prop chamada de _id, que será o identificador único de um documento em uma coleção.
+Essa propriedade pode ser de qualquer tipo, mas por padrão ela é do tipo Object ID.
+O valor do Object ID é do tipo hexadecimal, ocupando 12 bytes, sendo da seguinte maneira:
+- Os primeiros 4 bytes equivalem ao timestamp (unix type)
+- Os próximos 3 bytes representam o identificador da máquina (geralmente um hash do hostname), para que máquinas diferentes não gerem números repetidos
+- Os próximos 2 bytes representam o número do processo para que não se tenham ids iguais 
+- Os próximos 3 bytes representam o incremento dentro do intervalor de 1 segundo e dentro do mesmo processo, garantindo mais de 16 milhões de números únicos dentro de um único processo.
+
+#### Quem gera o object id?
+O object id pode ser gerado automaticamente pelo drive que conecta o mongo ou pelo próprio mongo. Isso existe para que a carga de geração seja distribuída entre várias máquinas que não seja o servidor.
+
+
+
 ## O que é o Restify?
 O Restify é uma biblioteca específica para Node, que irá auxiliar na criação da API, para ouvir as suas requisições. É similar ao ExpressJS.
 - Trabalha diretamente com JSON
